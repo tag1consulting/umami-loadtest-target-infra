@@ -65,6 +65,7 @@ RUN set -eux; \
 	export COMPOSER_HOME="$(mktemp -d)"; \
 	composer create-project --no-interaction "drupal/recommended-project:$DRUPAL_VERSION" ./; \
   composer require drupal/fastly; \
+  composer require drupal/purge; \
 	chgrp -R 0 web/sites web/modules web/themes; \
   chmod -R g=u web/sites web/modules web/themes; \
 	rmdir /var/www/html; \
