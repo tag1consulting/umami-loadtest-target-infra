@@ -69,6 +69,7 @@ RUN set -eux; \
   chmod -R g=u web/sites web/modules web/themes; \
 	rmdir /var/www/html; \
 	ln -sf /opt/drupal/web /var/www/html; \
+  echo 'SetEnvIf X-Forwarded-Proto "https" HTTPS=on' > /etc/apache2/conf-enabled/ssl.conf; \
 	# delete composer cache
 	rm -rf "$COMPOSER_HOME"
 
